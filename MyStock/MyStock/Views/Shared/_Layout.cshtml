@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>@ViewBag.Title - MyStock</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a style="cursor:pointer;" class="active" onclick="openNav();">&#9776;MyStock</a>
+        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)
+        @Html.ActionLink("Partners", "Index", "Partners", new { area = "" }, null)
+        @Html.ActionLink("Products", "Index", "Products", new { area = "" }, null)
+        @Html.ActionLink("Invoices", "Index", "Invoices", new { area = "" }, null)
+        @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)
+        <a href="javascript:void(0);" style="font-size: 15px;" class="icon" onclick="responsiveFunction()">&#9776</a>
+    </div>
+    @*script for responsive navbar*@
+    <script>
+        function responsiveFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <h2>MyStock</h2>
+            @Html.ActionLink("Partners", "Index", "Partners", new { area = "" }, new { @class = "fa fa-user" })
+            @Html.ActionLink("Products", "Index", "Products", new { area = "" }, new { @class = "fa fa-product-hunt" })
+            @Html.ActionLink("Invoices", "Index", "Invoices", new { area = "" }, new { @class = "fa fa-credit-card" })
+            @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "fa fa-envelope-open" })
+        </div>
+    </div>
+
+    @*script for fullscreen overlay navbar*@
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+    </script>
+
+
+    <div style="background:transparent;" class="container body-content">
+        @RenderBody()
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - <span style="color:lightgreen;">MyStock</span></p>
+            <p><a href="https://scoalainformala.ro/">.NET 6</a></p>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

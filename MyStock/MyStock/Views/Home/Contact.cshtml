@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<body style="background-image:url('../../Content/Images/pattern.jpg')">
+    <h3>Contact Form</h3>
+
+    <div class="container">
+        <form action="/action_page.php">
+            <label for="fname">Full Name</label>
+            <input type="text" id="fname" name="fullname" placeholder="Your name..">
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+                <option value="romania">Romania</option>
+                <option value="germany">Germany</option>
+            </select>
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
